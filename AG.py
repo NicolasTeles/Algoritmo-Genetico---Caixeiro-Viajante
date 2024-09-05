@@ -6,6 +6,7 @@ import random
 POPULATION_SIZE = 150
 ELITE_PERCENTAGE = 0.5
 NUMBER_OF_GENERATIONS = 500
+MUTATION_CHANCE = 0.1
 
 
 def generate_population(graph: nx.Graph, population_size: int) -> list[list[int]]:
@@ -18,7 +19,7 @@ def generate_population(graph: nx.Graph, population_size: int) -> list[list[int]
     return population
             
 def mutate(individual: list[int]) -> list[int]:
-    if random.random() > 0.2:
+    if random.random() > MUTATION_CHANCE:
         return individual
     # Trocar dois nós
     index1, index2 = random.sample(range(0, len(individual)-1), 2)
